@@ -4,11 +4,11 @@ const {createdevice,getAllDevicesById,getAllDevices,findSingleDevice,editDevice,
 const auth = require("../middleware/authMiddleware")
 
 
-router.post("/create",createdevice)
-router.get("/getAll/:userId",getAllDevicesById)
-router.get("/getAllDevices",getAllDevices)
-router.get("/:id",findSingleDevice)
-router.put("/:id",editDevice)
-router.delete("/:id",deleteDevice)
+router.post("/create",auth,createdevice)
+router.get("/getAll/:userId",auth,getAllDevicesById)
+router.get("/getAllDevices",auth,getAllDevices)
+router.get("/:id",auth,findSingleDevice)
+router.put("/:id",auth,editDevice)
+router.delete("/:id",auth,deleteDevice)
 
 module.exports = router;

@@ -4,10 +4,10 @@ const {createData,getAllDataByDevice,editData,deleteData,findSingleData} = requi
 const auth = require("../middleware/authMiddleware")
 
 
-router.post("/create/",createData)
-router.get("/getAll/:id",getAllDataByDevice)
-router.get("/:id",findSingleData)
-router.put("/:id",editData)
-router.delete("/:id",deleteData)
+router.post("/create/",auth,createData)
+router.get("/getAll/:id",auth,getAllDataByDevice)
+router.get("/:id",auth,findSingleData)
+router.put("/:id",auth,editData)
+router.delete("/:id",auth,deleteData)
 
 module.exports = router;
